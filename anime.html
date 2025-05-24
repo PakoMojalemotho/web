@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Ratings | AniMovie</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+body {
+    margin: 0;
+    background-color: #0f0f0f;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+    padding: 1rem 2rem;
+    background-color: #1c1c1c;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 1.8rem;
+}
+
+nav a {
+    margin: 0 0.75rem;
+    text-decoration: none;
+    color: #fff;
+}
+
+nav a.active {
+    color: #ff0040;
+}
+
+main {
+     padding: 2rem;
+}
+
+section {
+    margin-bottom: 4rem;
+}
+
+.section-title {
+    text-align: center;
+    color: #ff0040;
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+}
+.anime-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.anime-item {
+    background-color: #1c1c1c;
+    border: 1px solid #333;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    padding: 1rem;
+}
+
+.anime-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    }
+
+.anime-item h3 {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+}
+        
+.checked {
+  color: orange;
+}
+.anime-item img {
+     transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.anime-item:hover img {
+     transform: scale(1.05);
+     box-shadow: 0 0 15px rgba(255, 0, 64, 0.5);
+            
+}
+footer {
+    background-color: #0f0f0f;
+    text-align: center;
+    padding: 2rem;
+    color: #777;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1><span style="color: #ff0040;"> Ani</span>Movie</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="movies.html">Movies</a>
+            <a href="anime.html">Anime</a>
+            <a href="contact.html">Contact</a>
+            <a href="about.html">About us</a>
+        </nav>
+         <div class="search-box">
+          <img src="images/search.png" alt="search-icon">
+          <input type="text" name="Search" placeholder="search" >
+        </div>
+    </header>
+
+    <main>
+    
+        <section>
+            <h2 class="section-title">Anime Suggestions</h2>
+            <div class="anime-gallery">
+                <div class="anime-item">
+                    <img src="images/death note.jpg" alt="Suggested Anime 1">
+                     <span class="fa fa-star checked"></span>
+                     <span class="fa fa-star checked"></span>
+                     <span class="fa fa-star checked"></span>
+                     <span class="fa fa-star"></span>
+                     <span class="fa fa-star"></span>
+                     <h3>Death Note</h3>
+                </div>
+                 <div class="anime-item">
+                    <img src="images/naruto.jpg" alt="Suggested Anime 1">
+                     <span class="fa fa-star checked"></span>
+                     <span class="fa fa-star checked"></span>
+                     <span class="fa fa-star checked"></span>
+                     <span class="fa fa-star"></span>
+                     <span class="fa fa-star"></span>
+                     <h3>Naruto Manga </h3>
+                </div>
+                 <div class="anime-item">
+                    <img src="images/death note.jpg" alt="Suggested Anime 1">
+                     <span class="fa fa-star checked"></span>
+                     <span class="fa fa-star checked"></span>
+                     <span class="fa fa-star checked"></span>
+                     <span class="fa fa-star"></span>
+                     <span class="fa fa-star"></span>
+                     <h3>Suggested Anime 1</h3>
+                </div>
+                 <div class="anime-item">
+                    <img src="images/death note.jpg" alt="Suggested Anime 1">
+                     <span class="fa fa-star checked"></span>
+                     <span class="fa fa-star checked"></span>
+                     <span class="fa fa-star checked"></span>
+                     <span class="fa fa-star"></span>
+                     <span class="fa fa-star"></span>
+                     <h3>Suggested Anime 1</h3>
+                </div>
+
+                <div class="anime-item">
+                    <img src="images/black clover.jpg" alt="Suggested Anime 2">
+                     <span class="fa fa-star checked"></span>
+                     <span class="fa fa-star checked"></span>
+                     <span class="fa fa-star checked"></span>
+                     <span class="fa fa-star checked"></span>
+                     <span class="fa fa-star"></span>
+                     <h3>Black Clover</h3>
+                </div>
+
+            </div>
+        </section>
+
+
+        <section>
+            <h2 class="section-title">Top Anime</h2>
+            <div class="anime-gallery">
+                <div class="anime-item">
+                    <img src="images/shardow garden.png" alt="Top Anime 1">
+                     <span class="fa fa-star checked"></span>
+                     <span class="fa fa-star checked"></span>
+                     <span class="fa fa-star checked"></span>
+                     <span class="fa fa-star checked"></span>
+                     <span class="fa fa-star"></span>
+                     <h3>The Eminices In Shadow </h3>
+                </div>
+                 <div class="anime-item">
+                    <img src="images/kaiju no 8.jpg" alt="Suggested Anime 1">
+                     <span class="fa fa-star checked"></span>
+                     <span class="fa fa-star checked"></span>
+                     <span class="fa fa-star checked"></span>
+                     <span class="fa fa-star checked"></span>
+                     <span class="fa fa-star"></span>
+                     <h3>Kaiju no 8</h3>
+                </div>
+                 <div class="anime-item">
+                    <img src="images/vinland saga.jpg" alt="Suggested Anime 1">
+                     <span class="fa fa-star checked"></span>
+                     <span class="fa fa-star checked"></span>
+                     <span class="fa fa-star checked"></span>
+                     <span class="fa fa-star checked"></span>
+                     <span class="fa fa-star checked"></span>
+                     <h3>Vinland Saga </h3>
+                </div>
+                <div class="anime-item">
+                    <img src="images/solo leveling.jpg" alt="Top Anime 2">
+                     <span class="fa fa-star checked"></span>
+                     <span class="fa fa-star checked"></span>
+                     <span class="fa fa-star checked"></span>
+                     <span class="fa fa-star checked"></span>
+                     <span class="fa fa-star checked"></span>
+                     <h3>Solo Leveling</h3>  
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 AniMovie. All rights reserved.</p>
+    </footer>
+</body>
+</html>

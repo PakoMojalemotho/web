@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AniMovie</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            background-color: #0f0f0f;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        header {
+            padding: 1rem 2rem;
+            background-color: #1c1c1c;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header h1 {
+            font-size: 1.8rem;
+        }
+        nav a {
+            margin: 0 0.75rem;
+            text-decoration: none;
+            color: #fff;
+        }
+        nav a.active {
+            color: #ff0040;
+        }
+        main {
+            display: flex;
+            flex-direction: row;
+            gap: 2rem;
+            padding: 2rem;
+        }
+        .main-content {
+            flex: 3;
+        }
+        .popular-sidebar {
+            flex: 1;
+            background-color: #1c1c1c;
+            padding: 1.5rem;
+            border-left: 2px solid #ff0040;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: sticky;
+            top: 0;
+        }
+        .popular-sidebar h2 {
+            font-size: 1.5rem;
+            color: #ff0040;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .movie-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: space-between;
+        }
+        .movie-card, .popular-movie {
+            background-color: #2a2a2a;
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            border: 1px solid #333;
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: 200px;
+            flex-grow: 1;
+            cursor: pointer;
+        }
+        .movie-card:hover, .popular-movie:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 0, 64, 0.5);
+        }
+        .movie-card img, .popular-movie img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+        }
+        .movie-card h3, .popular-movie h3 {
+            padding: 1rem;
+            font-size: 1.1rem;
+            color: #fff;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal.open {
+            display: flex;
+        }
+    
+        
+        .modal-content h3 {
+            margin: 0.5rem 0;
+        }
+        .modal-content p {
+            color: #ccc;
+        }
+        .close-btn {
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: #ff0040;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        footer {
+            background-color: #0f0f0f;
+            text-align: center;
+            padding: 2rem;
+            color: #777;
+        }
+                .modal-content {
+            background-color: #1c1c1c;
+            padding: 1.5rem;
+            border-radius: 10px;
+            max-width: 400px;
+            max-height: 500px;
+            overflow-y: auto;
+            width: 90%;
+            color: #fff;
+            text-align: center;
+            position: relative;
+            z-index: 1001;
+        }
+
+        .modal-content img {
+            width: 100%;
+            max-height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h1><span style="color: #ff0040;"> Ani</span>Movie</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="movies.html">Movies</a>
+            <a href="anime.html">Anime</a>
+            <a href="contact.html">Contact</a>
+            <a href="about.html">About us</a>
+        </nav>
+        <div class="search-box">
+            <img src="images/search.png" alt="search-icon">
+            <input type="text" name="Search" placeholder="search">
+        </div>
+    </header>
+
+    <main>
+        
+        <section class="main-content">
+            <h2>Movies to Watch</h2>
+            <div class="movie-grid">
+                <div class="movie-card" onclick="openModal('images/movie-1.jpg', 'Jumanji', 'A magical board game unleashes jungle-based hazards into the real world. Players must finish the game to reverse the chaos.1.')">
+                    <img src="images/movie-1.jpg" alt="Movie 1">
+                    <h3>Jumanji</h3>
+                </div>
+                <div class="movie-card" onclick="openModal('images/movie-2.jpg', 'Hitmans Bodyguard 2', 'Bodyguard Michael Bryce and hitman Darius Kincaid team up again—this time with Darius’ volatile wife—for a chaotic mission to save Europe.')">
+                    <img src="images/movie-2.jpg" alt="Movie 2">
+                    <h3>Hitman's Bodyguard 2</h3>
+                </div>
+                <div class="movie-card" onclick="openModal('images/movie-3.jpg', 'Shang-Chi And The Legend Ten Ring', 'A skilled martial artist confronts his past and the mysterious Ten Rings organization led by his powerful father.')">
+                    <img src="images/movie-3.jpg" alt="Movie 3">
+                    <h3>Shang-Chi And The Legend Ten Rings</h3>
+                </div>
+                <div class="movie-card" onclick="openModal('images/movie-4.jpg', 'Eternals', 'A group of immortal beings with superhuman powers secretly guide humanity through the ages and must reunite to stop an ancient threat.')">
+                    <img src="images/movie-4.jpg" alt="Movie 4">
+                    <h3>Eternals</h3>
+                </div>
+                <div class="movie-card" onclick="openModal('images/movie-5.jpg', 'Specter 007', 'James Bond uncovers a sinister organization while confronting ghosts from his past that connect to a larger conspiracy.')">
+                    <img src="images/movie-5.jpg" alt="Movie 5">
+                    <h3>Specter 007</h3>
+                </div>
+                <div class="movie-card" onclick="openModal('images/movie-6.jpg', 'Money Heist Part 5', 'The Professor’s crew faces their most dangerous challenge yet as their heist inside the Bank of Spain spirals into all-out war.')">
+                    <img src="images/movie-6.jpg" alt="Movie 6">
+                    <h3>Money Heist Part 5</h3>
+                </div>
+                <div class="movie-card" onclick="openModal('images/movie-7.jpg', 'The Wolverine', 'Logan, aka Wolverine, travels to Japan and faces deadly samurai and inner demons in a battle for survival and redemption.')">
+                    <img src="images/movie-7.jpg" alt="Movie 7">
+                    <h3>The Wolverine</h3>
+                </div>
+                <div class="movie-card" onclick="openModal('images/movie-8.jpg', 'Johnny English', 'A bumbling British spy is Britains last hope when a mysterious villain threatens the crown jewels and global security.')">
+                    <img src="images/movie-8.jpg" alt="Movie 8">
+                    <h3>Johnny English </h3>
+                </div>
+            </div>
+        </section>
+
+        
+        <aside class="popular-sidebar">
+            <h2>Popular</h2>
+            <div class="popular-movie" onclick="openModal('images/popular-movie-1.jpg', 'Spider-Man No Way Home', 'Peter Parker seeks help from Doctor Strange to restore his secret identity, but unleashes multiverse chaos in the process.')">
+                <img src="images/popular-movie-1.jpg" alt="Popular 1">
+                <h3>Spider-Man No Way Home </h3>
+            </div>
+            <div class="popular-movie" onclick="openModal('images/popular-movie-2.jpg', 'Jungle Cruise', 'A riverboat captain and a scientist journey into the Amazon to uncover an ancient tree with healing powers, facing mythical threats.')">
+                <img src="images/popular-movie-2.jpg" alt="Popular 2">
+                <h3>Jungle Cruise</h3>
+            </div>
+            <div class="popular-movie" onclick="openModal('images/popular-movie-3.jpg', 'Loki', 'After stealing the Tesseract, Loki is captured by the Time Variance Authority and must help fix the multiverse he disrupted.')">
+                <img src="images/popular-movie-3.jpg" alt="Popular 3">
+                <h3>Loki</h3>
+            </div>
+        </aside>
+    </main> 
+
+    <div class="modal" id="movieModal" onclick="handleModalClick(event)">
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="Movie Preview">
+            <h3 id="modalTitle"></h3>
+            <p id="modalDescription"></p>
+            <button class="close-btn" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 AniMovie. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function openModal(imageSrc, title, description) {
+            document.getElementById('modalImage').src = imageSrc;
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalDescription').innerText = description;
+            document.getElementById('movieModal').classList.add('open');
+        }
+
+        function closeModal() {
+            document.getElementById('movieModal').classList.remove('open');
+        }
+
+        function handleModalClick(event) {
+            const modalContent = document.querySelector('.modal-content');
+            if (!modalContent.contains(event.target)) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
